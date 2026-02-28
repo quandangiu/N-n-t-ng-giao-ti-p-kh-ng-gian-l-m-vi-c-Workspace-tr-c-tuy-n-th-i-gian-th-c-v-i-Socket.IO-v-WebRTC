@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Realtime</title>
+  </head>
+  <body class="bg-chat-bg text-chat-text">
+    <div id="root"></div>
+    <script>
+      // Polyfills for Node.js modules used by simple-peer
+      window.global = window;
+      window.process = window.process || { env: {}, version: '', nextTick: function(fn) { setTimeout(fn, 0); } };
+      if (typeof window.Buffer === 'undefined') {
+        window.Buffer = { isBuffer: function() { return false; } };
+      }
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
